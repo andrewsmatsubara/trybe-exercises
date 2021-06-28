@@ -1,13 +1,20 @@
 let n = 7;
-let string = "";
+let center = (n + 1) / 2;
+let controlRight = center;
+let controlLeft = center;
+let symbol = "*";
 
-for(let i = 0; i <= n - 3; i += 1){
-    for(let j = 0; j < n - i; j += 1){
-        string += " ";
+for(let line = 1; line <= center; line += 1){
+    let outputLine = "";
+
+    for(let col = 1; col <= n; col += 1){
+        if(col == controlLeft || col == controlRight || line == center){
+            outputLine += symbol;
+        }else{
+            outputLine += ' ';
+        }
     }
-    for(let k = 0; k < 2 * i - 1; k += 1){
-        string += "*";
-    }
-    string += "\n";
+    controlLeft -= 1;
+    controlRight += 1;
+    console.log(outputLine);
 }
-console.log(string);
