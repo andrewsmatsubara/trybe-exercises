@@ -42,3 +42,13 @@ function createDaysOfTheWeek() {
       }
   }
   createDaysOfTheMonth();
+
+  function holiday(){
+    let btn = document.createElement('button');
+    btn.id = 'btn-holiday';
+    btn.innerHTML = 'Feriados';
+    
+    let buttonsContainer = document.querySelector('.buttons-container')
+    buttonsContainer.appendChild(btn);
+  }
+  holiday('Feriados');
