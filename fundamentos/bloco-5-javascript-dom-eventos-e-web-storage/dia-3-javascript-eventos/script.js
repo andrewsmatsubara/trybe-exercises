@@ -28,7 +28,7 @@ function createDaysOfTheWeek() {
               dayListItem.className = 'day holiday';
               dayListItem.innerHTML = day;
               daysID.appendChild(dayListItem);
-          }else if(day === 4 || day === 11 || day === 18 || day === 25){
+          }else if(day === 4 || day === 11 || day === 18){
               dayListItem.className = 'day friday';
               dayListItem.innerHTML = day;
               daysID.appendChild(dayListItem);
@@ -109,3 +109,24 @@ function createDaysOfTheWeek() {
     });
   }
   changeTextFriday(arraySexta);
+
+  //Exercicio 6
+
+  function zoomMouseOver(){
+      let days = document.querySelector('#days');
+
+      days.addEventListener('mouseover', function(event){
+        event.target.style.fontSize = '30px';
+      });
+  }
+
+  function zoomMouseOut(){
+      let days = document.querySelector('#days');
+
+      days.addEventListener('mouseout', function(event){
+        event.target.style.fontSize = '20px';
+      });
+  }
+
+  zoomMouseOver();
+  zoomMouseOut();
