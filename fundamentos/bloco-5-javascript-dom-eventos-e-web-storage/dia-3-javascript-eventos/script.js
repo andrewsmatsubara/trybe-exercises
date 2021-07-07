@@ -24,7 +24,7 @@ function createDaysOfTheWeek() {
           let day = dezDaysList[index];
           let dayListItem = document.createElement('li');
 
-          if(day === 24 || day === 25 || day === 31){
+          if(day === 24 || day === 31){
               dayListItem.className = 'day holiday';
               dayListItem.innerHTML = day;
               daysID.appendChild(dayListItem);
@@ -33,7 +33,7 @@ function createDaysOfTheWeek() {
               dayListItem.innerHTML = day;
               daysID.appendChild(dayListItem);
           }else if(day === 25){
-              dayListItem.className = 'day holiday friday';
+              dayListItem.className = 'day friday holiday';
               dayListItem.innerHTML = day;
               daysID.appendChild(dayListItem);
           }else{
@@ -82,9 +82,30 @@ function createDaysOfTheWeek() {
   function createBtnFriday(){
     let btnFriday = document.createElement('button');
     btnFriday.id = 'btn-friday';
-    btnFriday.innerHTML = 'Sexta-feira'
+    btnFriday.innerHTML = 'Sexta-feira';
 
     let buttonsContainer = document.querySelector('.buttons-container');
     buttonsContainer.appendChild(btnFriday);
   }
   createBtnFriday('Sexta-Feira');
+
+  //Exercicio 5
+
+  let arraySexta = [4, 11, 18, 25];
+
+  function changeTextFriday(fridayArray){
+    let btnClickFriday = document.querySelector('#btn-friday');
+    let fridays = document.querySelectorAll('.friday')
+    let message = 'Sexta-feira!';
+
+    btnClickFriday.addEventListener('click', function(){
+        for(let index = 0; index < fridays.length; index += 1){
+            if(fridays[index].innerHTML !== message){
+                fridays[index].innerHTML = message; 
+            }else{
+                fridays[index].innerHTML = fridayArray[index];
+            }
+        }
+    });
+  }
+  changeTextFriday(arraySexta);
