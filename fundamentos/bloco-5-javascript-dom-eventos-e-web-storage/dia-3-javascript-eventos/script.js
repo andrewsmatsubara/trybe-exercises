@@ -76,3 +76,15 @@ function createDaysOfTheWeek() {
     });
   }
   changeBgColorHoliday();
+
+  //Exercicio 4
+
+  function createBtnFriday(){
+    let btnFriday = document.createElement('button');
+    btnFriday.id = 'btn-friday';
+    btnFriday.innerHTML = 'Sexta-feira'
+
+    let buttonsContainer = document.querySelector('.buttons-container');
+    buttonsContainer.appendChild(btnFriday);
+  }
+  createBtnFriday('Sexta-Feira');
