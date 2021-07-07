@@ -169,3 +169,18 @@ function createDaysOfTheWeek() {
     });
   }
   addEvent();
+
+  //Exercicio 10
+
+  function addColorDay(){
+    let day = document.querySelector('#days');
+
+    day.addEventListener('click', function(event){
+        if(event.target.style.color != 'orange'){
+            event.target.style.color = 'orange';
+        }else{
+            event.target.style.color = 'rgb(119,119,119)';
+        }
+    });
+  }
+  addColorDay();
