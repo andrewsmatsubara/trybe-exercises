@@ -154,3 +154,18 @@ function createDaysOfTheWeek() {
     taskColor.style.backgroundColor = color;
   }
   addColoredSubtitles("orange");
+
+  //Exercicio 9
+
+  function addEvent(){
+    let clickColor = document.querySelector('.task');
+
+    clickColor.addEventListener('click', function(event){
+        if(event.target.className !== 'task selected'){
+            event.target.className = 'task selected';
+        }else{
+            event.target.className = 'task';
+        }
+    });
+  }
+  addEvent();
