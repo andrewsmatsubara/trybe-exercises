@@ -141,3 +141,16 @@ function createDaysOfTheWeek() {
     task.innerHTML = tarefa;
   }
   addTask("Projeto");
+
+  //Exercicio 8
+
+  function addColoredSubtitles(color){
+    let taskColor = document.createElement('div');
+    let myTasks = document.querySelector('.my-tasks');
+    
+    taskColor.className = 'task';
+    myTasks.appendChild(taskColor);
+
+    taskColor.style.backgroundColor = color;
+  }
+  addColoredSubtitles("orange");
