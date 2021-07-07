@@ -130,3 +130,14 @@ function createDaysOfTheWeek() {
 
   zoomMouseOver();
   zoomMouseOut();
+
+  //Exercicio 7
+
+  function addTask(tarefa){
+    let task = document.createElement('span');
+    let myTasks = document.querySelector('.my-tasks');
+
+    myTasks.appendChild(task);
+    task.innerHTML = tarefa;
+  }
+  addTask("Projeto");
