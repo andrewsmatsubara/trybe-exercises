@@ -1,6 +1,8 @@
+window.onload = function(){
 function changeBackgroundColor(){
     let bgColor = document.querySelector('.btn-background-color');
-    let originalColor = document.body.style.backgroundColor;
+    let bgColorAgain = document.body.style.backgroundColor;
+    let originalColor = 'white';
     let anotherColor = 'blue';
 
     bgColor.addEventListener('click', function(){
@@ -9,8 +11,10 @@ function changeBackgroundColor(){
         }else{
             document.body.style.backgroundColor = anotherColor;
         }
+        localStorage.setItem('5.4-background-color', document.body.style.backgroundColor)
     });
 }
+
 
 function changeTextColor(){
     let textColor = document.querySelector('.btn-text-color');
@@ -25,6 +29,7 @@ function changeTextColor(){
             }else{
                 paragraph[index].style.color = anotherColor;
             }
+            localStorage.setItem('5.4-font-color', paragraph[index].style.color)
         }
     });
 }
@@ -42,6 +47,7 @@ function changeFontSize(){
             }else{
                 paragraph[index].style.fontSize = anotherSize;
             }
+            localStorage.setItem('5.4-font-size', paragraph[index].style.fontSize);
         }
     });
 }
@@ -59,6 +65,7 @@ function changeLineHeight(){
             }else{
                 paragraph[index].style.lineHeight = anotherHeight;
             }
+            localStorage.setItem('5.4-line-height', paragraph[index].style.lineHeight);
         }
     });
 }
@@ -76,6 +83,7 @@ function changeFontFamily(){
             }else{
                 paragraph[index].style.fontFamily = anotherFamily;
             }
+            localStorage.setItem('5.4-font-family', paragraph[index].style.fontFamily);
         }
     });
 }
@@ -85,3 +93,29 @@ changeTextColor();
 changeFontSize();
 changeLineHeight();
 changeFontFamily()
+
+let savedBackground = localStorage.getItem('5.4-background-color');
+document.body.style.backgroundColor = savedBackground;
+
+let paragraph = document.getElementsByTagName('p');
+
+let savedFontColor = localStorage.getItem('5.4-font-color');
+for(let index = 0; index < paragraph.length; index += 1){
+    paragraph[index].style.color = savedFontColor;
+}
+
+let savedFontSize = localStorage.getItem('5.4-font-size');
+for(let index = 0; index < paragraph.length; index += 1){
+    paragraph[index].style.fontSize = savedFontSize;
+}
+
+let savedLineHeight = localStorage.getItem('5.4-line-height');
+for(let index = 0; index < paragraph.length; index += 1){
+    paragraph[index].style.lineHeight = savedLineHeight;
+}
+
+let savedFontFamily = localStorage.getItem('5.4-font-family');
+for(let index = 0; index < paragraph.length; index += 1){
+    paragraph[index].style.fontFamily = savedFontFamily;
+}
+}
