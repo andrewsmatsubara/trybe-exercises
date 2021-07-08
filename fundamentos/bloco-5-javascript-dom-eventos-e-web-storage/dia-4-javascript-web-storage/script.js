@@ -30,7 +30,20 @@ function changeTextColor(){
 }
 
 function changeFontSize(){
+    let textSize = document.querySelector('.btn-font-size');
+    let paragraph = document.getElementsByTagName('p');
+    let originalSize = '20px';
+    let anotherSize = '30px';
 
+    textSize.addEventListener('click', function(){
+        for(let index = 0; index < paragraph.length; index += 1){
+            if(paragraph[index].style.fontSize === anotherSize){
+                paragraph[index].style.fontSize = originalSize;
+            }else{
+                paragraph[index].style.fontSize = anotherSize;
+            }
+        }
+    });
 }
 
 function changeLineHeight(){
