@@ -13,7 +13,12 @@ function criaOption() {
 }
 criaOption();
 
-function enviarDados(event){
-	event.preventDefault();	
+function enviarDados(){
+	let button = document.querySelector('#enviar-dado');
+
+	button.addEventListener('click', function(event){
+		event.preventDefault();	
+		console.log('lalalala');
+	});
 }
 enviarDados();
