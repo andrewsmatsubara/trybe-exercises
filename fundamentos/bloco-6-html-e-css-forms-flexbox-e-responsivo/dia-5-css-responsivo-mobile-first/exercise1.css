@@ -2,9 +2,11 @@ body {
 	font-size: 15px;
 	margin: 20px 20px;
 }
+
 h1 {
 	font-size: 20px;
 }
+
 h2 {
 
 }
@@ -24,8 +26,9 @@ figure {
 		font-size: 30px;
 		margin: 5px 5px;
 	}
-
-	img {
-		
+	
+	figure {
+		float: left;
+		margin-right: 10%; 
 	}
 }
