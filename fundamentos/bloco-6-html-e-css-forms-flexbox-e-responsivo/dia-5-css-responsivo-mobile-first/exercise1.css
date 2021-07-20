@@ -1,0 +1,31 @@
+body {
+	font-size: 15px;
+	margin: 20px 20px;
+}
+h1 {
+	font-size: 20px;
+}
+h2 {
+
+}
+
+img {
+    max-width: 100%;
+}
+
+figure {
+    margin: 0;
+		margin: 20px 0px;
+}
+
+@media screen and (min-width: 600px) {
+	body {
+		background-color: aquamarine;
+		font-size: 30px;
+		margin: 5px 5px;
+	}
+
+	img {
+		
+	}
+}
