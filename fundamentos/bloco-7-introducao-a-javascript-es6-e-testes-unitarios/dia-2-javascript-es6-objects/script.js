@@ -106,3 +106,15 @@
   const valorChave = (objeto, posicao) => Object.values(objeto)[posicao];
 
   console.log(valorChave(lesson2, 1));
+
+  const verificaPar = (objeto, chave, valor) => {
+    const array = Object.entries(objeto);
+    let igual = false;
+    for(let i in array){
+      if(array[i][0] === chave && array[i][1] === valor){
+        igual = true;
+      }
+    }
+    return igual;
+  }
+  console.log(verificaPar(lesson2, 'numeroEstudantes', 20));
