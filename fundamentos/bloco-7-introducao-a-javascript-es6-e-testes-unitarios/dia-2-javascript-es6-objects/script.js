@@ -80,3 +80,6 @@
 
   addTurno(lesson2, 'turno', 'manhã');
   console.log(lesson2);
+
+  const listaKeys = (objeto) => Object.keys(objeto);
+  console.log(listaKeys(lesson1));
