@@ -83,3 +83,6 @@
 
   const listaKeys = (objeto) => Object.keys(objeto);
   console.log(listaKeys(lesson1));
+
+  const sizeOfObject = (objeto) => Object.keys(objeto).length;
+  console.log(sizeOfObject(lesson1));
