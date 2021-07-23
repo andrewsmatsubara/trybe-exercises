@@ -102,3 +102,7 @@
     return total;
   }
   console.log(numTotEstudantes(allLessons));
+
+  const valorChave = (objeto, posicao) => Object.values(objeto)[posicao];
+
+  console.log(valorChave(lesson2, 1));
