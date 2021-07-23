@@ -1,4 +1,4 @@
-const order = {
+/* const order = {
     name: 'Rafael Andrade',
     phoneNumber: '11-98763-1416',
     address: {
@@ -52,4 +52,31 @@ const order = {
     console.log(`Olá ${newCustomerInfo.name}, o total do seu pedido de marguerita, pepperoni e Coca-Cola Zero é R$${newCustomerInfo.payment.total}.`)
   }
   
-  orderModifier(order);
+  orderModifier(order); */
+
+  const lesson1 = {
+    materia: 'Matemática',
+    numeroEstudantes: 20,
+    professor: 'Maria Clara',
+    turno: 'manhã',
+  };
+  
+  const lesson2 = {
+    materia: 'História',
+    numeroEstudantes: 20,
+    professor: 'Carlos',
+  };
+  
+  const lesson3 = {
+    materia: 'Matemática',
+    numeroEstudantes: 10,
+    professor: 'Maria Clara',
+    turno: 'noite',
+  };
+
+  const addTurno = (lesson2, turno, valor) => {
+    lesson2.turno = valor;
+  };
+
+  addTurno(lesson2, 'turno', 'manhã');
+  console.log(lesson2);
