@@ -14,5 +14,5 @@ assert.deepStrictEqual(myFizzBuzz(15), 'fizzbuzz');
 assert.deepStrictEqual(myFizzBuzz(3), 'fizz');
 assert.deepStrictEqual(myFizzBuzz(5), 'buzz');
 /* assert.deepStrictEqual(myFizzBuzz(19), 'fizzbuzz'); */
-assert.deepStrictEqual(myFizzBuzz('15'), 'false');
+assert.deepStrictEqual(myFizzBuzz('15'), false);
 
