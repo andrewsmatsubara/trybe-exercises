@@ -64,3 +64,20 @@ const books = [
 ];
 
 // Adicione o código do exercício aqui:
+
+const expectedResult = false;
+
+function authorUnique() {
+  // escreva seu código aqui
+  for (i in books) {
+    for (j in books) {
+      if (books[i].author.birthYear === books[j].author.birthYear) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
+}
+
+assert.strictEqual(authorUnique(), expectedResult);
