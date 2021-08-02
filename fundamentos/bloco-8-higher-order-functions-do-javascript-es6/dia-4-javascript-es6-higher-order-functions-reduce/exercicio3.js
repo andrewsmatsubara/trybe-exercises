@@ -64,3 +64,17 @@ const books = [
 ];
 
 // Adicione o código do exercício aqui:
+
+const expectedResult = 43;
+
+function averageAge() {
+  // escreva seu código aqui
+  const qtdLivros = books.length;
+  const somaDasIdades = books.reduce((acc, book) => acc + (book.releaseYear - book.author.birthYear), 0);
+
+  return somaDasIdades / qtdLivros;
+}
+
+assert.strictEqual(averageAge(), expectedResult);
+
+//Apesar de o meu raciocínio estar certo no começo, meu erro para esse exercício foi não separar as constantes de soma das idades e quantidade de livros, fazendo com que o código ficasse extremamente confuso e eu não conseguisse terminar o código de maneira adequada, tendo que recorrer ao gabarito;
