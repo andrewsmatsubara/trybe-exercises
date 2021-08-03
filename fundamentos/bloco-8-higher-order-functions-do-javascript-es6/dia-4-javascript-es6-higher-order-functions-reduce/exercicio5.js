@@ -8,8 +8,12 @@ const names = [
 
 function containsA() {
   // escreva seu código aqui
-  const qtdVezesLetra = names.reduce((acc, nome, index, array) => acc {
-
+  return qtdVezesLetra = names.reduce((acc, nome) => acc + nome.split('')).reduce((acumulador, nomes) => {
+    if(nomes === 'a' || nomes === 'A'){
+      return acumulador + 1;
+    }else{
+      return acumulador;
+    }
   })
   return qtdVezesLetra;
 }
