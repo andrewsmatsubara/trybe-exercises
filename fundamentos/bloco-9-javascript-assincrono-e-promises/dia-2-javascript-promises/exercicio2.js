@@ -1,0 +1,1 @@
+const promise = new Promise(numero => numero = Math.abs(Math.ceil(Math.random() * (50 - 1) + 1)));
