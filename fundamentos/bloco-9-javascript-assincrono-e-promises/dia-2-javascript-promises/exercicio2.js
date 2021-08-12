@@ -3,7 +3,7 @@ const funcao = () => {
 
     const promise = new Promise((resolve, reject) => {
         for (let i = 0; i < 10; i += 1) {
-            const randomNum = Math.abs(Math.ceil(Math.random() * (50 - 1) + 1))
+            const randomNum = Math.pow(Math.ceil(Math.random() * (50 - 1) + 1), 2);
 
             arr[i] = randomNum;
         }
@@ -13,6 +13,7 @@ const funcao = () => {
     });
 
     promise
-        .then = () => console.log('Promise resolvida')
-            .catch = () => console.log('Promise rejeitada')
+        .then(() => console.log('Promise resolvida'))
+            .catch(() => console.log('Promise rejeitada'));
 }
+funcao();
