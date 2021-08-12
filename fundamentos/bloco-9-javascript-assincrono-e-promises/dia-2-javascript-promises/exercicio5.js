@@ -9,11 +9,12 @@ const funcao = () => {
         }
         const somaArr = arr.reduce((acc, curr) => acc + curr, 0);
 
-        (somaArr < 8000) ? resolve() : reject();
+        (somaArr < 8000) ? resolve(somaArr) : reject();
     });
 
     promise
-        .then(() => console.log('Promise resolvida'))
-            .catch(() => console.log('Promise rejeitada'));
+        .then(somaArr => [2, 3, 5, 10].map(numero => somaArr / numero))
+        .then((somaArr) => somaArr.reduce((acc, curr) => acc + curr), 0)
+        .catch(() => console.log('É mais de oito mil! Essa promise deve estar quebrada!'));
 }
 funcao();
