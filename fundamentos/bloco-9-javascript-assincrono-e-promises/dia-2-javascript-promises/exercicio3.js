@@ -9,7 +9,7 @@ const funcao = () => {
         }
         const somaArr = arr.reduce((acc, curr) => acc + curr, 0);
 
-        (somaArr < 8000) ? resolve() : reject();
+        (somaArr < 8000) ? resolve(somaArr) : reject();
     });
 
     promise
