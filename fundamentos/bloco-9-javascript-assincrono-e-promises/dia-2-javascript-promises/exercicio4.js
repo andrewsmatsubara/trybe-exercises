@@ -14,6 +14,6 @@ const funcao = () => {
 
     promise
         .then(somaArr => [2, 3, 5, 10].map(numero => somaArr / numero))
-        .catch(() => console.log('Promise rejeitada'));
+        .catch(() => console.log('É mais de oito mil! Essa promise deve estar quebrada!'));
 }
 funcao();
