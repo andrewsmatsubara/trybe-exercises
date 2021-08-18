@@ -1,5 +1,3 @@
-const assert = require('assert');
-
 const obj1 = {
   title: 'My Title',
   description: 'My Description',
@@ -16,3 +14,5 @@ const obj3 = {
 };
 
 // implemente seus testes aqui
+
+module.exports = {obj1, obj2, obj3};
