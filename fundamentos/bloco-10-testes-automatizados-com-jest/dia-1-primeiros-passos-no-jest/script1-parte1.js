@@ -1,5 +1,3 @@
-const assert = require('assert');
-
 function sum(a, b) {
   if (typeof a !== 'number' || typeof b !== 'number') {
     throw new Error('parameters must be numbers');
@@ -9,3 +7,5 @@ function sum(a, b) {
 }
 
 // implemente seus testes aqui
+
+module.exports = sum;
