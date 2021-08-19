@@ -1,18 +1,39 @@
-// 9 - Crie uma função que Codifique e Decodifique
-// Crie duas funções: a primeira deverá se chamar encode e, ao receber uma string como parâmetro, deverá trocar todas as vogais minúsculas por números, de acordo com o formato a seguir:
+function encode(frase) {
+    const fraseASeparar = frase.split('')
+    fraseASeparar.forEach((letra, index) => {
+        if (letra === 'a') {
+            fraseASeparar[index] = '1';
+        } else if (letra === 'e') {
+            fraseASeparar[index] = '2';
+        } else if (letra === 'i') {
+            fraseASeparar[index] = '3';
+        } else if (letra === 'o') {
+            fraseASeparar[index] = '4';
+        } else if (letra === 'u') {
+            fraseASeparar[index] = '5';
+        }
+    });
+    return fraseASeparar.join('');
+}
+console.log(encode('hi there!'));
 
-// a -> 1
-// e -> 2
-// i -> 3
-// o -> 4
-// u -> 5
+function decode(frase) {
+    const fraseASeparar = frase.split('')
+    fraseASeparar.forEach((letra, index) => {
+        if (letra === '1') {
+            fraseASeparar[index] = 'a';
+        } else if (letra === '2') {
+            fraseASeparar[index] = 'e';
+        } else if (letra === '3') {
+            fraseASeparar[index] = 'i';
+        } else if (letra === '4') {
+            fraseASeparar[index] = 'o';
+        } else if (letra === '5') {
+            fraseASeparar[index] = 'u';
+        }
+    });
+    return fraseASeparar.join('');
+}
+console.log(decode('h3 th2r2!'));
 
-// Ou seja, caso o parâmetro de encode seja "hi there!", o retorno deverá ser "h3 th2r2!".
-
-// A segunda função deverá se chamar decode e faz o contrário de encode - ou seja, recebe uma string contendo números no lugar de letras minúsculas e retornará uma string com vogais minúsculas no lugar dos números (então, caso o parâmetro de decode seja "h3 th2r2!", o retorno deverá ser "hi there!").
-
-// O que será verificado:
-
-// Retorne uma string codificada quando a função encode for utilizada
-
-// Retorne uma string decodificada quando a função decode for utilizada
+module.exports = {encode, decode};
