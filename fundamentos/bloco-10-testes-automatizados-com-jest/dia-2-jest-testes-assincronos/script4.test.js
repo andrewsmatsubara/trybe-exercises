@@ -5,5 +5,5 @@ test("verifica se os repositórios 'sd-01-week4-5-project-todo-list' e 'sd-01-we
     return getRepos(url).then((projeto) => {
         expect(projeto).toContain('sd-01-week4-5-project-todo-list');
         expect(projeto).toContain('sd-01-week4-5-project-meme-generator');
-    })
+    });
 });
