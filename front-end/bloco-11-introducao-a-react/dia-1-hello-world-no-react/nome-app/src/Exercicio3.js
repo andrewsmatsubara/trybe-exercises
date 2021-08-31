@@ -1,6 +1,5 @@
 // Exercício 3.1
 
-// Antes: const JSX = <div></div>;
 // Depois: const JSX = <h1>Hello JSX!</h1>;
 
 // Exercício 3.2
@@ -24,3 +23,14 @@
 // 		{/*comment*/}
 // 	</div>
 // );
+
+// Exercício 3.4
+
+// const JSX = (
+// 	<div>
+// 		<h1>Hello World</h1>
+// 		<p>Lets render this to the DOM</p>
+// 	</div>
+// );
+// // Change code below this line
+// ReactDOM.render(JSX, document.getElementById('challenge-node'));
