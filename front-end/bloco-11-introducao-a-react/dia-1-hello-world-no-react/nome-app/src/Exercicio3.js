@@ -34,3 +34,11 @@
 // );
 // // Change code below this line
 // ReactDOM.render(JSX, document.getElementById('challenge-node'));
+
+// Exercício 3.5
+
+// const JSX = (
+//   <div className = 'myDiv'>
+//     <h1>Add a class to this div</h1>
+//   </div>
+// );
