@@ -52,3 +52,13 @@
 //     <hr />
 //   </div>
 // );
+
+// Exercício 3.7
+
+// const MyComponent = function() {
+//   // Change code below this line
+
+// return <div>frase teste</div>
+
+//   // Change code above this line
+// }
