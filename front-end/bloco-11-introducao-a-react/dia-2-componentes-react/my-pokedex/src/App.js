@@ -1,10 +1,16 @@
 import React from 'react';
 import './App.css';
-import Pokemon from './pokemon';
+import pokemons from './data';
+import Pokedex from './pokedex';
 
 class App extends React.Component {
     render() {
-        return <Pokemon />
+        return (
+            <div>
+                <h1>Pokedex</h1>
+                <Pokedex pokemons={pokemons} />
+            </div>
+        );
     }
 }
 
