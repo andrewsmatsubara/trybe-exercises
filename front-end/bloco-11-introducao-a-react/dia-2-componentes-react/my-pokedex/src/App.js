@@ -3,7 +3,9 @@ import './App.css';
 import Pokemon from './pokemon';
 
 class App extends React.Component {
-    return
+    render() {
+        return <Pokemon />
+    }
 }
 
 export default App;
