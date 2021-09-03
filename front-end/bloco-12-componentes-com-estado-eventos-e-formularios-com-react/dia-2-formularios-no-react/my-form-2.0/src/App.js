@@ -1,5 +1,4 @@
 import React from 'react';
-import DadosPessoais from './DadosPessoais';
 
 class App extends React.Component {
   constructor() {
@@ -21,11 +20,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <DadosPessoais name='nome' handleChange={this.handleChange} value={this.state.nome}/>
-      </div>
+      <fieldset>
+        <input name='nome' maxLength='40' onChange={this.handleChange} value={this.state.nome}/>
+      </fieldset>
     );
   }
 }
 
 export default App;
+
+// https://stackoverflow.com/questions/52902613/how-can-i-add-required-attribute-to-the-fileds-in-react-js
