@@ -4,12 +4,14 @@ class App extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.upperCase = this.upperCase.bind(this);
     this.state = {
       nome: '',
+      email: '',
     }
   }
 
-  handleChange({ target }) {
+  upperCase({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
@@ -18,10 +20,20 @@ class App extends React.Component {
     });
   }
 
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
     return (
       <fieldset>
-        <input name='nome' maxLength='40' onChange={this.handleChange} value={this.state.nome}/>
+        <input name='nome' maxLength='40' onChange={this.upperCase} value={this.state.nome} required/>
+        <input type='email' name='email' maxLength='50' onChange={this.handleChange} value={this.state.email} required />
       </fieldset>
     );
   }
