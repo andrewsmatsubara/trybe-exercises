@@ -9,6 +9,7 @@ class App extends React.Component {
       nome: '',
       email: '',
       cpf: '',
+      endereco: '',
     }
   }
 
@@ -36,6 +37,7 @@ class App extends React.Component {
         <input type='text' name='nome' maxLength='40' onChange={this.upperCase} value={this.state.nome} required/>
         <input type='text' name='email' maxLength='50' onChange={this.handleChange} value={this.state.email} required />
         <input type='text' name='cpf' maxLength='11' onChange={this.handleChange} value={this.state.cpf} required/>
+        <input type='text' name='endereco' maxLength='200' onChange={this.handleChange} value={this.state.endereco} />
       </fieldset>
     );
   }
