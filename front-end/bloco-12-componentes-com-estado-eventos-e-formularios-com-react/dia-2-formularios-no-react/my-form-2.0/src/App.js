@@ -8,6 +8,7 @@ class App extends React.Component {
     this.state = {
       nome: '',
       email: '',
+      cpf: '',
     }
   }
 
@@ -32,8 +33,9 @@ class App extends React.Component {
   render() {
     return (
       <fieldset>
-        <input name='nome' maxLength='40' onChange={this.upperCase} value={this.state.nome} required/>
-        <input type='email' name='email' maxLength='50' onChange={this.handleChange} value={this.state.email} required />
+        <input type='text' name='nome' maxLength='40' onChange={this.upperCase} value={this.state.nome} required/>
+        <input type='text' name='email' maxLength='50' onChange={this.handleChange} value={this.state.email} required />
+        <input type='text' name='cpf' maxLength='11' onChange={this.handleChange} value={this.state.cpf} required/>
       </fieldset>
     );
   }
