@@ -8,6 +8,9 @@ class App extends React.Component {
     this.blur = this.blur.bind(this);
     this.criarEstado = this.criarEstado.bind(this);
     this.radioButtonValidation = this.radioButtonValidation.bind(this);
+    this.mouseEnterCargo = this.mouseEnterCargo.bind(this);
+    this.criaDiv = this.criaDiv.bind(this);
+    this.limpaCampos = this.limpaCampos.bind(this);
 
     this.state = {
       nome: '',
@@ -17,6 +20,9 @@ class App extends React.Component {
       cidade: '',
       estados: ["AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RO", "RS", "RR", "SC", "SE", "SP", "TO"],
       tipo: ["Casa", "Apartamento"],
+      resumo: '',
+      cargo: '',
+      descricao: '',
     }
   }
 
@@ -71,35 +77,79 @@ class App extends React.Component {
     const { name } = target;
     const value = target.value;
 
-    for(let i = 0; i <= this.state.tipo.length; i += 1){
-      if(value === 'Casa'){
+    for (let i = 0; i <= this.state.tipo.length; i += 1) {
+      if (value === 'Casa') {
         this.setState({
           [name]: 'Casa',
         });
       } else {
         this.setState({
           [name]: 'Apartamento',
-        })
+        });
       }
     }
   }
 
+  mouseEnterCargo({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
+      [name]: value,
+    });
+    alert('Preencha com cuidado esta informação');
+  }
+
+  criaDiv() {
+    const info = document.querySelector('.info');
+    const novaDiv = document.createElement('div');
+    
+    info.remove();
+    novaDiv.innerText = info.innerHTML;
+  }
+
+  limpaCampos() {
+    this.setState({
+      nome: '',
+      email: '',
+      cpf: '',
+      endereco: '',
+      cidade: '',
+      estados: ["AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RO", "RS", "RR", "SC", "SE", "SP", "TO"],
+      tipo: ["Casa", "Apartamento"],
+      resumo: '',
+      cargo: '',
+      descricao: '',
+      submit: 'Enviar',
+      limpar: '',
+    });
+  }
+
   render() {
     return (
-      <fieldset>
-        <input type='text' name='nome' maxLength='40' onChange={this.upperCase} value={this.state.nome} required />
-        <input type='text' name='email' maxLength='50' onChange={this.handleChange} value={this.state.email} required />
-        <input type='text' name='cpf' maxLength='11' onChange={this.handleChange} value={this.state.cpf} required />
-        <input type='text' name='endereco' maxLength='200' onChange={this.handleChange} value={this.state.endereco} required />
-        <input type='text' name='cidade' maxLength='28' onChange={this.handleChange} value={this.state.cidade} onBlur={this.blur} required />
-        <select name='estado' onChange={this.criarEstado} required>
-          {this.state.estados.map((estado) => (<option key={estado}>{estado}</option>))}
-        </select>
-        <label onChange={this.radioButtonValidation}>
-          <input type='radio' value='Casa' name='tipo' />Casa
-          <input type='radio' value='Apartamento' name='tipo' />Apartamento
-        </label>
-      </fieldset>
+      <div className='info'>
+        <fieldset>
+          <input type='text' name='nome' maxLength='40' onChange={this.upperCase} value={this.state.nome} required />
+          <input type='text' name='email' maxLength='50' onChange={this.handleChange} value={this.state.email} required />
+          <input type='text' name='cpf' maxLength='11' onChange={this.handleChange} value={this.state.cpf} required />
+          <input type='text' name='endereco' maxLength='200' onChange={this.handleChange} value={this.state.endereco} required />
+          <input type='text' name='cidade' maxLength='28' onChange={this.handleChange} value={this.state.cidade} onBlur={this.blur} required />
+          <select name='estado' onChange={this.criarEstado} required>
+            {this.state.estados.map((estado) => (<option key={estado}>{estado}</option>))}
+          </select>
+          <label onChange={this.radioButtonValidation}>
+            <input type='radio' value='Casa' name='tipo' />Casa
+            <input type='radio' value='Apartamento' name='tipo' />Apartamento
+          </label>
+        </fieldset>
+        <fieldset>
+          <textarea name='resumo' maxLength='1000' onChange={this.handleChange} value={this.state.resumo} required />
+          <textarea name='cargo' maxLength='40' onChange={this.handleChange} value={this.state.cargo} required />
+          <input type='text' name='descricao' maxLength='500' onChange={this.handleChange} value={this.state.descricao} required />
+        </fieldset>
+        <button name='submit' onClick={this.criaDiv}>Submit</button>
+        <button onClick={this.limpaCampos} >Limpar</button>
+      </div>
     );
   }
 }
