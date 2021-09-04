@@ -7,6 +7,7 @@ class App extends React.Component {
     this.upperCase = this.upperCase.bind(this);
     this.blur = this.blur.bind(this);
     this.criarEstado = this.criarEstado.bind(this);
+    this.radioButtonValidation = this.radioButtonValidation.bind(this);
 
     this.state = {
       nome: '',
@@ -15,6 +16,7 @@ class App extends React.Component {
       endereco: '',
       cidade: '',
       estados: ["AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RO", "RS", "RR", "SC", "SE", "SP", "TO"],
+      tipo: ["Casa", "Apartamento"],
     }
   }
 
@@ -65,6 +67,23 @@ class App extends React.Component {
     });
   }
 
+  radioButtonValidation({ target }) {
+    const { name } = target;
+    const value = target.value;
+
+    for(let i = 0; i <= this.state.tipo.length; i += 1){
+      if(value === 'Casa'){
+        this.setState({
+          [name]: 'Casa',
+        });
+      } else {
+        this.setState({
+          [name]: 'Apartamento',
+        })
+      }
+    }
+  }
+
   render() {
     return (
       <fieldset>
@@ -76,6 +95,10 @@ class App extends React.Component {
         <select name='estado' onChange={this.criarEstado} required>
           {this.state.estados.map((estado) => (<option key={estado}>{estado}</option>))}
         </select>
+        <label onChange={this.radioButtonValidation}>
+          <input type='radio' value='Casa' name='tipo' />Casa
+          <input type='radio' value='Apartamento' name='tipo' />Apartamento
+        </label>
       </fieldset>
     );
   }
