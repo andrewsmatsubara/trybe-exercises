@@ -9,7 +9,7 @@ class App extends React.Component {
     this.criarEstado = this.criarEstado.bind(this);
     this.radioButtonValidation = this.radioButtonValidation.bind(this);
     this.mouseEnterCargo = this.mouseEnterCargo.bind(this);
-    // this.criaDiv = this.criaDiv.bind(this);
+    this.criaDiv = this.criaDiv.bind(this);
     this.limpaCampos = this.limpaCampos.bind(this);
 
     this.state = {
@@ -23,8 +23,6 @@ class App extends React.Component {
       resumo: '',
       cargo: '',
       descricao: '',
-      submit: 'Enviar',
-      limpar: '',
     }
   }
 
@@ -102,18 +100,15 @@ class App extends React.Component {
     alert('Preencha com cuidado esta informação');
   }
 
-  // criaDiv() {
-  //   const info = document.querySelector('.info');
-  //   const divNova = document.createElement('div');
-
-  //   console.log(info);
-
-  //   divNova.innerHTML = ;
-  //   info.remove();
-  // }
+  criaDiv() {
+    const info = document.querySelector('.info');
+    const novaDiv = document.createElement('div');
+    
+    info.remove();
+    novaDiv.innerText = info.innerHTML;
+  }
 
   limpaCampos() {
-    console.log(this);
     this.setState({
       nome: '',
       email: '',
