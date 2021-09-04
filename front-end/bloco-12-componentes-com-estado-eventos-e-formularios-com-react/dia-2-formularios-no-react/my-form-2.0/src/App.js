@@ -8,6 +8,9 @@ class App extends React.Component {
     this.blur = this.blur.bind(this);
     this.criarEstado = this.criarEstado.bind(this);
     this.radioButtonValidation = this.radioButtonValidation.bind(this);
+    this.mouseEnterCargo = this.mouseEnterCargo.bind(this);
+    // this.criaDiv = this.criaDiv.bind(this);
+    this.limpaCampos = this.limpaCampos.bind(this);
 
     this.state = {
       nome: '',
@@ -19,6 +22,9 @@ class App extends React.Component {
       tipo: ["Casa", "Apartamento"],
       resumo: '',
       cargo: '',
+      descricao: '',
+      submit: 'Enviar',
+      limpar: '',
     }
   }
 
@@ -81,14 +87,52 @@ class App extends React.Component {
       } else {
         this.setState({
           [name]: 'Apartamento',
-        })
+        });
       }
     }
   }
 
+  mouseEnterCargo({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
+      [name]: value,
+    });
+    alert('Preencha com cuidado esta informação');
+  }
+
+  // criaDiv() {
+  //   const info = document.querySelector('.info');
+  //   const divNova = document.createElement('div');
+
+  //   console.log(info);
+
+  //   divNova.innerHTML = ;
+  //   info.remove();
+  // }
+
+  limpaCampos() {
+    console.log(this);
+    this.setState({
+      nome: '',
+      email: '',
+      cpf: '',
+      endereco: '',
+      cidade: '',
+      estados: ["AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RO", "RS", "RR", "SC", "SE", "SP", "TO"],
+      tipo: ["Casa", "Apartamento"],
+      resumo: '',
+      cargo: '',
+      descricao: '',
+      submit: 'Enviar',
+      limpar: '',
+    });
+  }
+
   render() {
     return (
-      <div>
+      <div className='info'>
         <fieldset>
           <input type='text' name='nome' maxLength='40' onChange={this.upperCase} value={this.state.nome} required />
           <input type='text' name='email' maxLength='50' onChange={this.handleChange} value={this.state.email} required />
@@ -105,8 +149,11 @@ class App extends React.Component {
         </fieldset>
         <fieldset>
           <textarea name='resumo' maxLength='1000' onChange={this.handleChange} value={this.state.resumo} required />
-          <textarea name='cargo' maxLength='40' required />
+          <textarea name='cargo' maxLength='40' onChange={this.handleChange} value={this.state.cargo} required />
+          <input type='text' name='descricao' maxLength='500' onChange={this.handleChange} value={this.state.descricao} required />
         </fieldset>
+        <button name='submit' onClick={this.criaDiv}>Submit</button>
+        <button onClick={this.limpaCampos} >Limpar</button>
       </div>
     );
   }
