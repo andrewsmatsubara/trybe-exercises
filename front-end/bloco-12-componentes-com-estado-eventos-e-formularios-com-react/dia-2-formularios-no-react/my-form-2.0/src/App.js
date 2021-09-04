@@ -5,11 +5,14 @@ class App extends React.Component {
     super();
     this.handleChange = this.handleChange.bind(this);
     this.upperCase = this.upperCase.bind(this);
+    this.blur = this.blur.bind(this);
+
     this.state = {
       nome: '',
       email: '',
       cpf: '',
       endereco: '',
+      cidade: '',
     }
   }
 
@@ -31,13 +34,34 @@ class App extends React.Component {
     });
   }
 
+  blur({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    const modifiedValue = value.split('').map((element) => {
+      let number = Number(element);
+      return isNaN(number) ? element : number;
+    })
+
+    if (typeof modifiedValue[0] === 'number') {
+      this.setState({
+        [name]: '',
+      });
+    } else {
+      this.setState({
+        [name]: value,
+      });
+    }
+  }
+
   render() {
     return (
       <fieldset>
-        <input type='text' name='nome' maxLength='40' onChange={this.upperCase} value={this.state.nome} required/>
+        <input type='text' name='nome' maxLength='40' onChange={this.upperCase} value={this.state.nome} required />
         <input type='text' name='email' maxLength='50' onChange={this.handleChange} value={this.state.email} required />
-        <input type='text' name='cpf' maxLength='11' onChange={this.handleChange} value={this.state.cpf} required/>
-        <input type='text' name='endereco' maxLength='200' onChange={this.handleChange} value={this.state.endereco} />
+        <input type='text' name='cpf' maxLength='11' onChange={this.handleChange} value={this.state.cpf} required />
+        <input type='text' name='endereco' maxLength='200' onChange={this.handleChange} value={this.state.endereco} required />
+        <input type='text' name='cidade' maxLength='28' onChange={this.handleChange} value={this.state.cidade} onBlur={this.blur} required />
       </fieldset>
     );
   }
@@ -46,3 +70,4 @@ class App extends React.Component {
 export default App;
 
 // https://stackoverflow.com/questions/52902613/how-can-i-add-required-attribute-to-the-fileds-in-react-js
+// https://stackoverflow.com/questions/38911413/how-to-split-a-string-to-an-array-of-integers
