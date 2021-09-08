@@ -97,15 +97,16 @@ class App extends React.Component {
     this.setState({
       [name]: value,
     });
-    alert('Preencha com cuidado esta informação');
   }
 
   criaDiv() {
     const info = document.querySelector('.info');
+    const divRoot = document.querySelector('#root');
     const novaDiv = document.createElement('div');
-    
+
     info.remove();
-    novaDiv.innerText = info.innerHTML;
+    novaDiv.innerHTML = info;
+    divRoot.appendChild(novaDiv);
   }
 
   limpaCampos() {
@@ -144,11 +145,11 @@ class App extends React.Component {
         </fieldset>
         <fieldset>
           <textarea name='resumo' maxLength='1000' onChange={this.handleChange} value={this.state.resumo} required />
-          <textarea name='cargo' maxLength='40' onChange={this.handleChange} value={this.state.cargo} required />
+          <textarea name='cargo' maxLength='40' onMouseEnter={this.mouseEnterCargo} value={this.state.cargo} required />
           <input type='text' name='descricao' maxLength='500' onChange={this.handleChange} value={this.state.descricao} required />
         </fieldset>
         <button name='submit' onClick={this.criaDiv}>Submit</button>
-        <button onClick={this.limpaCampos} >Limpar</button>
+        <button onClick={this.limpaCampos}>Limpar</button>
       </div>
     );
   }
