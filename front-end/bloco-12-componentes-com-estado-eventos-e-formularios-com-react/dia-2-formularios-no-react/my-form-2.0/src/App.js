@@ -99,17 +99,30 @@ class App extends React.Component {
     });
   }
 
-  criaDiv() {
-    const info = document.querySelector('.info');
+  criaDiv(event) {
     const divRoot = document.querySelector('#root');
     const novaDiv = document.createElement('div');
+    novaDiv.className = 'nova-div';
 
-    info.remove();
-    novaDiv.innerHTML = info;
+    novaDiv.innerHTML = `${this.state.nome} 
+    ${this.state.email} 
+    ${this.state.cpf} 
+    ${this.state.endereco} 
+    ${this.state.cidade} 
+    ${this.state.estado} 
+    ${this.state.tipo} 
+    ${this.state.resumo} 
+    ${this.state.cargo} 
+    ${this.state.descricao}`;
+
     divRoot.appendChild(novaDiv);
+
+    event.preventDefault();
   }
 
   limpaCampos() {
+    const novaDiv = document.querySelector('.nova-div');
+
     this.setState({
       nome: '',
       email: '',
@@ -124,11 +137,12 @@ class App extends React.Component {
       submit: 'Enviar',
       limpar: '',
     });
+    novaDiv.remove();
   }
 
   render() {
     return (
-      <div className='info'>
+      <form className='info' onSubmit={this.criaDiv}>
         <fieldset>
           <input type='text' name='nome' maxLength='40' onChange={this.upperCase} value={this.state.nome} required />
           <input type='text' name='email' maxLength='50' onChange={this.handleChange} value={this.state.email} required />
@@ -145,12 +159,12 @@ class App extends React.Component {
         </fieldset>
         <fieldset>
           <textarea name='resumo' maxLength='1000' onChange={this.handleChange} value={this.state.resumo} required />
-          <textarea name='cargo' maxLength='40' onMouseEnter={this.mouseEnterCargo} value={this.state.cargo} required />
+          <textarea name='cargo' maxLength='40' onChange={this.mouseEnterCargo} value={this.state.cargo} required />
           <input type='text' name='descricao' maxLength='500' onChange={this.handleChange} value={this.state.descricao} required />
         </fieldset>
-        <button name='submit' onClick={this.criaDiv}>Submit</button>
-        <button onClick={this.limpaCampos}>Limpar</button>
-      </div>
+        <button type='submit'>Submit</button>
+        <button type='reset' onClick={this.limpaCampos}>Limpar</button>
+      </form>
     );
   }
 }
