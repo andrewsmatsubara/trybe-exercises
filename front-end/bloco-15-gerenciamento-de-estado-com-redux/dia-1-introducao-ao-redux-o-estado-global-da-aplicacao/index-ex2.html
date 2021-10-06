@@ -70,6 +70,22 @@
         });
 
         const store = createStore(reducerCombinado);
+
+        window.onload = () => {
+        setTimeout(() => {
+          //Seu dispatch vem aqui //
+          store.dispatch({
+              type: 'PESSOA_1',
+              nome: 'Andrews',
+              sobrenome: 'Matsubara',
+          });
+          store.dispatch({
+              type: 'PESSOA_2',
+              nome: 'iujakm',
+              sobrenome: 'ajndjkasd',
+          });
+        }, 3000);
+      };
     </script>
 </body>
 
