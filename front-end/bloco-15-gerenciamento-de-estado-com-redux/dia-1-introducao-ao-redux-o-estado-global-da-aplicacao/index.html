@@ -65,6 +65,15 @@
             store.dispatch({ type: 'NEXT_COLOR' });
         });
 
+        store.subscribe(() => {
+            const container = document.getElementById('container');
+            const value = document.getElementById('value');
+            const { colors, index } = store.getState();
+
+            value.innerHTML = colors[index];
+            container.style.backgroundColor = colors[index];
+        });
+
         const store = Redux.createStore(reducer);
     </script>
 </body>
