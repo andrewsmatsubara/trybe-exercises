@@ -86,6 +86,15 @@
           });
         }, 3000);
       };
+
+      store.subscribe(() => {
+          const { meuPrimeiroReducer, meuSegundoReducer } = store.getState();
+          const nome1 = document.getElementById('nome-1');
+          const nome2 = document.getElementById('nome-2');
+
+          nome1.innerHTML = meuPrimeiroReducer.nome;
+          nome2.innerHTML = meuSegundoReducer.nome;
+      });
     </script>
 </body>
 
