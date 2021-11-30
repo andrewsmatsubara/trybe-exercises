@@ -12,8 +12,21 @@ services:
       database__connection__password: example
     depends_on:
       - "db"
+    networks:
+      - network
 
   db:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+    volumes:
+      - target:/var/lib/mysql 
+    networks:
+      - network  
+
+volumes:
+  target:
+
+networks:
+  network:
+  
