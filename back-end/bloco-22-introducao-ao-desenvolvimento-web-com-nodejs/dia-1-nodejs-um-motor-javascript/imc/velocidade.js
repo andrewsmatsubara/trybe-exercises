@@ -1,0 +1,2 @@
+const distancia = ;
+const tempo = ;
