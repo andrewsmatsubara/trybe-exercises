@@ -1,13 +1,15 @@
 const readline = require('readline-sync');
 
 const listaScripts = [
-  `1 - imc`,
-  `2 - velocidade`,
-  `3 - sorteio`
+  `1 - imc,
+2 - velocidade,
+3 - sorteio`
 ]
 
-const escolha = readline.question(`Escolha um dos scripts para rodar: 
-${listaScripts}, [1/2/3]`)
+const escolha = readline.question(`Escolha um dos scripts para rodar: [1/2/3]
+${listaScripts}
+
+`)
 
 if (escolha == 1) {
   require('./imc');
