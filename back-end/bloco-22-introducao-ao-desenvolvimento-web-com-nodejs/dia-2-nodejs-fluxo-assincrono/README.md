@@ -1,4 +1,4 @@
-##Node.js - Fluxo assíncrono
+## Node.js - Fluxo assíncrono
 
 Neste dia, retomamos alguns conceitos já aprendidos anteriormente no módulo de fundamentos do desenvolvimento web, tais como:
 - Callbacks
