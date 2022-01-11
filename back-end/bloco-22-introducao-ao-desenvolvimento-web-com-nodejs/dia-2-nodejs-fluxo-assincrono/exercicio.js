@@ -15,10 +15,15 @@ function getRandomNumber() {
   return Math.floor(Math.random() * 100 + 1);
 }
 
-const parametros = () => {
+const parametros = async () => {
   const arrayAleatorios = Array.from({length: 3}).map(getRandomNumber);
 
-  funcao(...arrayAleatorios).then(result => console.log(result)).catch(err => console.error(err.message));
+  try {
+    const resultado = await funcao(...arrayAleatorios);
+    console.log(resultado);
+  } catch (err) {
+    console.error(err.message);
+  }
 }
 
 parametros();
