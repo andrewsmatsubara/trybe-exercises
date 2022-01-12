@@ -5,6 +5,8 @@ const identificador = (num) => {
     return 'neutro';
   } else if (num > 0) {
     return 'positivo';
+  } else if (typeof num !== 'number') {
+    return 'o valor deve ser um número';
   }
 }
 
