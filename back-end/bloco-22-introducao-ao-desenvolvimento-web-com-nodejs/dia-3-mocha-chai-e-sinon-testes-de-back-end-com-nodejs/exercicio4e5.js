@@ -1,9 +1,9 @@
-const { expect } = require("chai");
+const fs = require('fs');
 
-describe('após a escrita do arquivo', () => {
-  it('deve-se retornar um ok', () => {
-    const resposta = escritorDeConteudo();
+const escritorDeConteudo = (nome, conteudo) => {
+  fs.writeFileSync(nome, conteudo);
 
-    expect(resposta).to.be.equal('ok');
-  });
-});
+  return 'ok';
+}
+
+module.exports = {escritorDeConteudo};

@@ -1,6 +1,6 @@
 const {expect} = require('chai');
 
-const {identificador} = require('../exercicio1');
+const {identificador} = require('../exercicio12e3');
 
 describe('o número em questão', () => {
   it('retorna uma string', () => {
