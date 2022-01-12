@@ -1,6 +1,6 @@
 const {expect} = require('chai');
 
-const {identificador} = require('../exercicio1');
+const {identificador} = require('../exercicio12e3');
 
 describe('o número em questão', () => {
   it('retorna uma string', () => {
@@ -31,5 +31,13 @@ describe('quando o número é menor que 0', () => {
     const resposta = identificador(-1);
 
     expect(resposta).to.be.equal('negativo');
+  });
+});
+
+describe('quando o tipo do parâmetro é diferente de Number', () => {
+  it('retorna que o valor deve ser um número', () => {
+    const resposta = identificador(String);
+
+    expect(resposta).to.be.equal('o valor deve ser um número');
   });
 });
