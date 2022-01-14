@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const leArquivo = require('./simpsons');
+const escreveArquivo = require('./simpsons');
 
 const app = express();
 
@@ -42,6 +43,18 @@ app.get('/simpsons/:id', async (req, res) => {
   if (!resultado) return res.status(404).json({ message: 'simpson not found' })
 
   res.status(200).json(resultado);
+});
+
+app.post('/simpsons', async (req, res) => {
+  const { id, name } = req.body;
+  const conteudo = await leArquivo();
+  if (conteudo.map(simpson => parseInt(simpson.id)).includes(id)) return res.status(409).json({ message: 'id already exists' });
+
+  conteudo.push({ id, name });
+
+  await escreveArquivo(conteudo);
+
+  return res.status(204).end();
 });
 
 app.listen(3001);
