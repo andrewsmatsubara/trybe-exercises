@@ -1,0 +1,22 @@
+{
+  "name": "dia-4-express-http-com-nodejs",
+  "version": "1.0.0",
+  "description": "Neste dia, revisitamos alguns conceitos como os de HTTP e API, dando início à construção das Application Programming Interfaces a partir da ferramenta Express, um framework Node.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "httpie": "^1.1.2"
+  }
+}
