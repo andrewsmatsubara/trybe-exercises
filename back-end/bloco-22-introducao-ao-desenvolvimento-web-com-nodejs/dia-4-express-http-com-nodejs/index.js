@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const leArquivo = require('./simpsons');
 
 const app = express();
 
@@ -25,6 +26,22 @@ app.post('/greetings', (req, res) => {
 app.put('/users/:name/:age', (req, res) => {
   const { name, age } = req.params;
   res.status(200).json({ "message": `Seu nome é ${name} e você tem ${age} anos de idade` })
+});
+
+app.get('/simpsons', async (_req, res) => {
+  const conteudo = await leArquivo();
+
+  res.status(200).json(conteudo);
+});
+
+app.get('/simpsons/:id', async (req, res) => {
+  const { id } = req.params;
+  const conteudo = await leArquivo();
+  const resultado = await conteudo.find(simpson => simpson.id === id);
+
+  if (!resultado) return res.status(404).json({ message: 'simpson not found' })
+
+  res.status(200).json(resultado);
 });
 
 app.listen(3001);
