@@ -1,3 +1,5 @@
+const { restart } = require("nodemon");
+
 const usernameValidation = (req, res, next) => {
   const { username } = req.body;
 
@@ -25,4 +27,13 @@ const passwordValidation = (req, res, next) => {
   next();
 }
 
-module.exports = { usernameValidation, emailValidation, passwordValidation };
+const tokenValidation = (req, res, next) => {
+  const { token } = req.headers.authorization;
+  const regex = !/^[a-zA-Z0-9]{12}$/;
+
+  if (!(token || regex.test(token) === true)) return res.status(401).json({ "message": "invalid token" });
+
+  next();
+}
+
+module.exports = { usernameValidation, emailValidation, passwordValidation, tokenValidation };
