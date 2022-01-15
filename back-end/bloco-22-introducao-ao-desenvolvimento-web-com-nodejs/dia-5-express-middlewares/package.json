@@ -4,7 +4,8 @@
   "description": "Neste dia, aprendemos sobre as Middlewares, conceito que já utilizávamos, porém com o nome de callback, ou seja, uma função passada para um rota.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
