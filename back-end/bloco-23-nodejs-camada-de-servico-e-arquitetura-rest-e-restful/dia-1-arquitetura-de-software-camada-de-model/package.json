@@ -1,0 +1,18 @@
+{
+  "name": "dia-1-arquitetura-de-software-camada-de-model",
+  "version": "1.0.0",
+  "description": "Neste dia, aprendemos a estruturar um model para manipular e definir a estrutura dos dados, assim como utilizar uma função escrita pelos próprios desenvolvedores \"serialize\" que nos permite renomear colunas de uma tabela de snake_case para camelCase.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}
