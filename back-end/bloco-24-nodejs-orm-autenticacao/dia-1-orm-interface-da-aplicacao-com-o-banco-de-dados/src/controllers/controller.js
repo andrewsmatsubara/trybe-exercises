@@ -8,4 +8,17 @@ const getBooks = async (_req, res) => {
   return res.status(200).json(books);
 };
 
-module.exports = { getBooks };
+const getBooksById = async (req, res) => {
+  const { id } = req.params;
+  const book = await Books.findByPk(id);
+
+  if (!book) {
+    return res.status(404).json({ message: 'Livro não encontrado!' });
+  }
+  return res.status(200).json(book);
+};
+
+module.exports = {
+  getBooks,
+  getBooksById,
+};
