@@ -3,13 +3,13 @@ const Books = (sequelize, DataTypes) => {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
     },
     title: DataTypes.STRING,
     author: DataTypes.STRING,
     pageQuantity: DataTypes.INTEGER,
     createdAt: DataTypes.DATE,
-  }, {
-    timestamps: false,
+    updatedAt: DataTypes.DATE,
   });
 
   return Book;
