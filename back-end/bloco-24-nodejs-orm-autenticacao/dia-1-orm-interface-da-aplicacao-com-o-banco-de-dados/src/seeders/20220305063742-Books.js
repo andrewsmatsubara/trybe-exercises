@@ -5,14 +5,16 @@ module.exports = {
     await queryInterface.bulkInsert('Books', [{
       title: 'Livro legal',
       author: 'Gênio do Chamyto',
-      pageQuantity: 500,
+      page_quantity: 500,
       createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+      updated_at: Sequelize.literal('CURRENT_TIMESTAMP')
     },
     {
       title: 'Como comer pão sem abrir a boca',
       author: 'Chefe doidera',
-      pageQuantity: 300,
-      createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+      page_quantity: 300,
+      created_at: Sequelize.literal('CURRENT_TIMESTAMP'),
+      updated_at: Sequelize.literal('CURRENT_TIMESTAMP')
     }
   ], {});
   },

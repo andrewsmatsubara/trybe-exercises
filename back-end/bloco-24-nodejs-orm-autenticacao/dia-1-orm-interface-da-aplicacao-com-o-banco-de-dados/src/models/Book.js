@@ -10,6 +10,9 @@ const Books = (sequelize, DataTypes) => {
     pageQuantity: DataTypes.INTEGER,
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE,
+  }, {
+    underscored: true,
+    tableName: 'Books'
   });
 
   return Book;
