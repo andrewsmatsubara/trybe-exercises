@@ -6,7 +6,7 @@ module.exports = {
       title: 'Livro legal',
       author: 'Gênio do Chamyto',
       page_quantity: 500,
-      createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+      created_at: Sequelize.literal('CURRENT_TIMESTAMP'),
       updated_at: Sequelize.literal('CURRENT_TIMESTAMP')
     },
     {

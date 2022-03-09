@@ -16,6 +16,8 @@ app.get('/book/:id', Book.getBooksById);
 
 app.post('/book', Book.createBook);
 
+app.delete('/book/:id', Book.deleteBook);
+
 app.listen(PORT, () => {
   console.log(`Aplicação rodando na porta ${ PORT }`);
 });

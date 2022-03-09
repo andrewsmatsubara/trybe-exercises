@@ -29,8 +29,27 @@ const createBook = async (req, res) => {
   }
 };
 
+const deleteBook = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedBook = await Books.destroy(
+      { where: { id } },
+    );
+    
+    if (!deletedBook) {
+      return res.status(404).json({ message: 'Não foi possível deletar um livro inexistente!' });
+    }
+    return res.status(200).json({ message: 'Livro deletado com sucesso!' });
+  } catch (e) {
+    console.log(e.message);
+
+    return res.status(500).json({ message: 'Algo de errado!' });
+  }
+};
+
 module.exports = {
   getBooks,
   getBooksById,
   createBook,
+  deleteBook,
 };
